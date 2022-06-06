@@ -8,12 +8,12 @@ const Product = ({data}) => {
   useEffect(()=>{
     axios.get(`http://localhost:8080/cartItems?productId=${data.id}`)
     .then((res)=>{
-      if(res.data.length!=0){
+      if(res.data.length!==0){
         console.log(res.data)
         setcount(res.data[0].count)
       }
     })
-  },[])
+  },[data.id])
 
 
 
