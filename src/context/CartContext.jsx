@@ -9,6 +9,8 @@ export const CartProvider = ({ children }) => {
 
   const [productData,setproductData]=useState([])
   const [cartData,setcartData]=useState(0)
+  const [change,setchange]=useState(0)
+  
 
   useEffect(()=>{
     axios.get('http://localhost:8080/products')
@@ -19,12 +21,12 @@ export const CartProvider = ({ children }) => {
     .then((res)=>{
       setcartData(res.data.length)
     })
-  },[])
+  },[change])
 
 
 
 
 
  
-  return <CartContext.Provider value={{productData,cartData}}>{children}</CartContext.Provider>;
+  return <CartContext.Provider value={{productData,cartData,change,setchange}}>{children}</CartContext.Provider>;
 };

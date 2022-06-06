@@ -14,7 +14,6 @@ const Navbar = () => {
   const {auth,setauth}=useContext(AuthContext)
   return (
     <div data-cy="navbar">
-      <div>LK</div>
       <Link  to={"/"} data-cy="navbar-home-link">HOME</Link>
       <span data-cy="navbar-cart-items-count">{auth?cartData:0}</span>
       <button  onClick={()=>{if(auth===true){
